@@ -2,8 +2,11 @@
 #define DBWIN_H
 
 #include <string>
+#include <vector>
+// #include "CmdFactory.h"
+#include "InputBuffer.h"
 
-const int CMD_BUFFER_SIZE = 512;
+namespace burgerkv {
 
 class DbWin {
 public:
@@ -12,14 +15,12 @@ public:
 
     void start();
     void prompt();
-    void split(const std::string& text, char delim, std::vector<std::string>& result);
-    char* readLine(char *p, int length);
-    int readInput(const char *pPromt, int numIndent);
 private:   
-    CmdFactory cmdFactory_;
-    char cmdBuffer_[CMD_BUFFER_SIZE];
-  
+    // CmdFactory cmdFactory_;
+    bool quit_ = true;
+    InputBuffer inputBuf_;
 };
 
+} // namespace burgerkv
 
 #endif // DBWIN_H
