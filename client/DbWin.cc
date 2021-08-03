@@ -1,5 +1,6 @@
 #include "DbWin.h"
 #include "common/ErrorCode.h"
+#include "Cmd.h"
 #include <iostream>
 
 using namespace burgerkv;
@@ -21,6 +22,26 @@ void DbWin::prompt() {
         // todo: log error code info
         return;
     }
-    // inputBuf_.
+    std::string inputCmd = inputBuf_.retriveAsString();
+    std::vector<std::string> cmdVec;
+    // split the input sentence 
+    burger::StringUtil::split(inputCmd, cmdVec);
+    
+    std::string cmd;
+    std::vector<std::string> paramVec;
+    int cnt = 0;
+    for(auto it = cmdVec.begin(); it != cmdVec.end(); it++) {
+        if(cnt == 0) {
+            cmd = *it;
+            cnt++;
+        } else {
+            paramVec.emplace_back(*it);
+        }
+    }
+    ICmd* pCmd = nullptr;
+    pCmd = cmdFactory_.getCmdProc(cmd);
+    if(pCmd != nullptr) {
+        pCmd->execute(paramVec);
+    }
 }
 

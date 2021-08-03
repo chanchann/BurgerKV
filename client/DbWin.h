@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-// #include "CmdFactory.h"
+#include "CmdFactory.h"
 #include "InputBuffer.h"
 
 namespace burgerkv {
@@ -16,7 +16,7 @@ public:
     void start();
     void prompt();
 private:   
-    // CmdFactory cmdFactory_;
+    CmdFactory cmdFactory_;
     bool quit_ = true;
     InputBuffer inputBuf_;
 };

@@ -1,5 +1,6 @@
 #include "InputBuffer.h"
 #include "common/ErrorCode.h"
+#include <burger/base/StringUtil.h>
 #include <cstring>
 
 namespace {
@@ -25,6 +26,12 @@ int InputBuffer::readInput() {
         std::cout << "> ";
     }
     return ErrorCode::OK;
+}
+
+std::string InputBuffer::retriveAsString() {
+    std::string result(&*buffer_.begin(), index_);
+    index_ = 0;
+    return result;
 }
 
 // todo : more elegant here?

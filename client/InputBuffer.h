@@ -14,7 +14,7 @@ public:
     ~InputBuffer() = default;
 
     int readInput();
-    
+    std::string retriveAsString();
     // void split(const std::string& text, char delim, std::vector<std::string>& result);
 private:
     bool readLine();
