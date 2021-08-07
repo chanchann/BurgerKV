@@ -2,6 +2,7 @@
 #include "common/ErrorCode.h"
 #include "Cmd.h"
 #include <iostream>
+#include <burger/base/StringUtil.h>
 
 using namespace burgerkv;
 
@@ -38,10 +39,10 @@ void DbWin::prompt() {
             paramVec.emplace_back(*it);
         }
     }
-    ICmd* pCmd = nullptr;
-    pCmd = cmdFactory_.getCmdProc(cmd);
-    if(pCmd != nullptr) {
-        pCmd->execute(paramVec);
-    }
+    // ICmd* pCmd = nullptr;
+    // pCmd = cmdFactory_.getCmdProc(cmd);
+    // if(pCmd != nullptr) {
+    //     pCmd->execute(paramVec);
+    // }
 }
 

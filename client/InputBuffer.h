@@ -15,7 +15,6 @@ public:
 
     int readInput();
     std::string retriveAsString();
-    // void split(const std::string& text, char delim, std::vector<std::string>& result);
 private:
     bool readLine();
     // std::vector<std::string> processInput();

@@ -16,7 +16,7 @@ public:
     void start();
     void prompt();
 private:   
-    CmdFactory cmdFactory_;
+    // CmdFactory cmdFactory_;
     bool quit_ = true;
     InputBuffer inputBuf_;
 };
